@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfAppDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        Height="350"
+        Width="525"
+        Background="#2E2E2E"
+    Foreground="White">
+
+    <DockPanel Background="#2E2E2E">
+        <!-- Ustaw tło również na DockPanel -->
+        <StackPanel Orientation="Horizontal" 
+                    DockPanel.Dock="Top"
+                    HorizontalAlignment="Center"
+                    Margin="10">
+            <Button Content="Kalkulator BMI" Click="BmiCalculatorButton_Click"/>
+            <Button Content="Konwerter walut" Click="CurrencyConverterButton_Click"/>
+        </StackPanel>
+
+        <Frame x:Name="MainFrame"
+               NavigationUIVisibility="Hidden"
+               Background="#2E2E2E" />
+    </DockPanel>
+</Window>

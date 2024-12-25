@@ -1,0 +1,27 @@
+﻿<Page x:Class="WpfAppDemo.Views.CurrencyConverterView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="CurrencyConverterView">
+    <StackPanel Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="Konwerter walut (USD → PLN)"
+                   FontSize="24"
+                   HorizontalAlignment="Center" />
+
+        <!-- USD input -->
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBlock Text="USD:" Margin="0,0,5,0"/>
+            <TextBox x:Name="UsdTextBox" Width="100"/>
+        </StackPanel>
+
+        <!-- Convert button -->
+        <Button Content="Konwertuj"
+                Margin="0,10,0,0"
+                Click="ConvertButton_Click"/>
+
+        <!-- Result Text -->
+        <TextBlock x:Name="ConvertedResultTextBlock"
+                   FontSize="16"
+                   Margin="0,10,0,0"
+                   TextWrapping="Wrap"/>
+    </StackPanel>
+</Page>

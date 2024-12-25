@@ -1,0 +1,51 @@
+﻿<Application x:Class="WpfAppDemo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+
+    <Application.Resources>
+        <!-- 
+          Definiujemy style w pliku App.xaml, aby obowiązywały globalnie 
+          (we wszystkich oknach i stronach).
+        -->
+
+        <!-- Ustawienie globalnego koloru tła i koloru czcionki (Foreground) -->
+        <SolidColorBrush x:Key="DarkBackgroundBrush" Color="#2E2E2E" />
+        <SolidColorBrush x:Key="DarkForegroundBrush" Color="White" />
+
+        <!-- Styl dla okien (Window) - aby wszystkie okna były ciemne i miały białą czcionkę -->
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="{StaticResource DarkBackgroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource DarkForegroundBrush}" />
+        </Style>
+
+        <!-- Styl dla stron (Page) - dzięki temu strony (Page) też będą ciemne -->
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="{StaticResource DarkBackgroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource DarkForegroundBrush}" />
+        </Style>
+
+        <!-- Styl dla Button -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#444444"/>
+            <!-- ciemniejszy szary -->
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#777777"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5,2"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <!-- Styl dla TextBox -->
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#444444"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#777777"/>
+        </Style>
+
+        <!-- Styl dla TextBlock -->
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Application.Resources>
+</Application>
