@@ -31,21 +31,21 @@ Okienkowy, z wykorzystaniem przycisków, etykiet oraz pól tekstowych. Wynik jes
 
 **Kategorie BMI**
 
-Wygłodzenie (<16)
+- Wygłodzenie (<16)
 
-Wychudzenie (16-16.99)
+- Wychudzenie (16-16.99)
 
-Niedowaga (17-18.49)
+- Niedowaga (17-18.49)
 
-Wartość prawidłowa (18.5-24.99)
+- Wartość prawidłowa (18.5-24.99)
 
-Nadwaga (25-29.99)
+- Nadwaga (25-29.99)
 
-Otyłość I stopnia (30-34.99)
+- Otyłość I stopnia (30-34.99)
 
-Otyłość II stopnia (35-39.99)
+- Otyłość II stopnia (35-39.99)
 
-Otyłość III stopnia (>40)
+- Otyłość III stopnia (>40)
 
 **Obsługa błędów**
 
@@ -501,10 +501,13 @@ namespace WpfAppDemo.Views
 ## Zrzuty ekranu 
 
 Uruchomienie aplikacji.
+<img width="383" alt="image" src="https://github.com/user-attachments/assets/4da53088-b090-4f32-8c44-5383a4d191d0" />
 
 Działanie kalkulatora BMI (wprowadzenie danych, wyświetlenie wyniku).
+<img width="381" alt="image" src="https://github.com/user-attachments/assets/aa78c3f3-5fd4-4288-8b35-21294332b4e6" />
 
 Działanie konwertera walut (wprowadzenie danych, wyświetlenie wyniku).
+<img width="382" alt="image" src="https://github.com/user-attachments/assets/94795942-2adb-409d-b24e-a933d7823c97" />
 
 (W tej sekcji należy wkleić odpowiednie zrzuty ekranu.)
 ---
