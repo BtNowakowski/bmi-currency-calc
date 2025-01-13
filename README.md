@@ -8,6 +8,11 @@ Wybrano język C# wraz ze środowiskiem Windows Presentation Foundation (WPF), p
 
 Projekt w **C# (WPF)** zawiera przykładową aplikację desktopową z **dwoma oddzielnymi widokami**:
 
+1. Kalkulator BMI – oblicza wartość BMI na podstawie wprowadzonych danych (waga, wzrost) oraz wyświetla wynik wraz z odpowiednią kategorią.
+2. Konwerter walut – pozwala przeliczyć kwotę w USD na PLN (na podstawie zdefiniowanego kursu).
+
+Nawigacja między widokami jest zrealizowana w **MainWindow** za pomocą kontrolki `Frame` i dwóch przycisków, z których każdy przechodzi do innego `Page`.
+
 Program 1: **Kalkulator BMI**
 
 **Dane wejściowe**
@@ -69,7 +74,7 @@ Komunikat „Proszę podać prawidłową kwotę w USD” w przypadku nieprawidł
 
 Dynamiczne pobieranie kursów walut z API internetowego.
 
-Nawigacja między widokami jest zrealizowana w **MainWindow** za pomocą kontrolki `Frame` i dwóch przycisków, z których każdy przechodzi do innego `Page`.
+
 
 ---
 
