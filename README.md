@@ -2,12 +2,72 @@
 
 # Sprawozdanie z projektu WPF: Kalkulator BMI i Konwerter Walut
 
+Wybrano język C# wraz ze środowiskiem Windows Presentation Foundation (WPF), ponieważ umożliwia on tworzenie aplikacji okienkowych z intuicyjnym interfejsem graficznym. Projekt zrealizowano w Visual Studio, które zapewnia wsparcie dla tworzenia i debugowania aplikacji WPF.
+
 ## Opis projektu
 
 Projekt w **C# (WPF)** zawiera przykładową aplikację desktopową z **dwoma oddzielnymi widokami**:
 
-1. **Kalkulator BMI** – oblicza wartość BMI na podstawie wprowadzonych danych (waga, wzrost) oraz wyświetla wynik wraz z odpowiednią kategorią.
-2. **Konwerter walut** – pozwala przeliczyć kwotę w USD na PLN (na podstawie zdefiniowanego kursu).
+Program 1: **Kalkulator BMI**
+
+**Dane wejściowe**
+
+Waga (w kilogramach), wprowadzana w polu tekstowym.
+
+Wzrost (w metrach), wprowadzany w polu tekstowym.
+
+**Dane wyjściowe**
+
+Wartość BMI wraz z kategorią (np. niedowaga, nadwaga).
+
+**Interfejs**
+
+Okienkowy, z wykorzystaniem przycisków, etykiet oraz pól tekstowych. Wynik jest wyświetlany w formie tekstowej pod polami wejściowymi.
+
+**Kategorie BMI**
+
+Wygłodzenie (<16)
+
+Wychudzenie (16-16.99)
+
+Niedowaga (17-18.49)
+
+Wartość prawidłowa (18.5-24.99)
+
+Nadwaga (25-29.99)
+
+Otyłość I stopnia (30-34.99)
+
+Otyłość II stopnia (35-39.99)
+
+Otyłość III stopnia (>40)
+
+**Obsługa błędów**
+
+Komunikat „Proszę podać poprawne wartości wagi i wzrostu” w przypadku nieprawidłowych danych wejściowych.
+
+
+Program 2: **Konwerter walut**
+
+**Dane wejściowe**
+
+Kwota w USD, wprowadzana w polu tekstowym.
+
+**Dane wyjściowe**
+
+Kwota przeliczona na PLN według ustalonego kursu (4,2 PLN/USD).
+
+**Interfejs**
+
+Okienkowy, z polem wejściowym, przyciskiem "Konwertuj" oraz polem wynikowym, w którym wyświetlana jest kwota w PLN.
+
+**Obsługa błędów**
+
+Komunikat „Proszę podać prawidłową kwotę w USD” w przypadku nieprawidłowych danych wejściowych.
+
+**Możliwości rozwoju**
+
+Dynamiczne pobieranie kursów walut z API internetowego.
 
 Nawigacja między widokami jest zrealizowana w **MainWindow** za pomocą kontrolki `Frame` i dwóch przycisków, z których każdy przechodzi do innego `Page`.
 
@@ -28,12 +88,53 @@ WpfAppDemo
 │   └── CurrencyConverterView.xaml.cs
 └── WpfAppDemo.csproj
 ```
+## Elementy obiektowości
 
 - **App.xaml**, **App.xaml.cs** – Pliki startowe aplikacji WPF.
 - **MainWindow.xaml**, **MainWindow.xaml.cs** – Główne okno aplikacji, zawiera `Frame` do nawigacji i przyciski do przełączania widoków.
+
 - **Views** (folder):
     - **BmiCalculatorView.xaml**, **BmiCalculatorView.xaml.cs** – Strona z kalkulatorem BMI.
     - **CurrencyConverterView.xaml**, **CurrencyConverterView.xaml.cs** – Strona z konwerterem walut (USD → PLN).
+
+- **CalculateBMI_Click** - Obsługuje logikę obliczania BMI i określania kategorii.
+- **ConvertButton_Click** - Realizuje konwersję walut przy użyciu zdefiniowanego kursu.
+- **GetBmiCategory** - Pomocnicza metoda do określania kategorii BMI na podstawie wartości.
+
+- Klasy widoków dziedziczą z klasy bazowej **Page**.
+
+## Algorytmy i biblioteki
+
+**Kalkulator BMI**
+
+Algorytm oblicza BMI według wzoru:
+
+Następnie wartość BMI jest klasyfikowana w kategoriach za pomocą metody GetBmiCategory z wykorzystaniem prostych instrukcji warunkowych (if-else).
+
+**Konwerter walut**
+
+Algorytm dokonuje prostego przeliczenia:
+
+Gdzie kurs jest ustalony jako stała o wartości 4,2.
+
+Biblioteki
+
+**System.Windows** Obsługa interfejsu graficznego (WPF).
+
+**System.Windows.Controls** Komponenty interfejsu (przyciski, pola tekstowe).
+
+**System** Obsługa konwersji i operacji matematycznych.
+
+## Obsługa błędów
+
+**Błędy miękkie**
+
+Niepoprawne dane wejściowe (np. brak liczby, liczba ujemna) są obsługiwane przez komunikaty wyświetlane w polu wynikowym.
+
+**Błędy twarde**
+
+Program zakłada poprawność działania środowiska WPF, a wyjątki systemowe (np. brak pamięci) nie są w tym momencie obsługiwane.
+
 
 ---
 
@@ -307,6 +408,9 @@ namespace WpfAppDemo.Views
 }
 ```
 
+
+
+
 ---
 
 ## Widok 2: Konwerter Walut (USD → PLN)
@@ -389,14 +493,33 @@ namespace WpfAppDemo.Views
     - **BMI Calculator** – przejście do strony kalkulatora BMI.
     - **Currency Converter** – przejście do strony konwertera walut.
 
+## Zrzuty ekranu 
+
+Uruchomienie aplikacji.
+
+Działanie kalkulatora BMI (wprowadzenie danych, wyświetlenie wyniku).
+
+Działanie konwertera walut (wprowadzenie danych, wyświetlenie wyniku).
+
+(W tej sekcji należy wkleić odpowiednie zrzuty ekranu.)
 ---
 
-## Podsumowanie
+## Podsumowanie i ocena
 
 - **Kalkulator BMI** oblicza wartość wskaźnika masy ciała na podstawie wagi (kg) oraz wzrostu (m), a następnie wyświetla wynik wraz z przypisaniem do odpowiedniej kategorii (np. „wartość prawidłowa” czy „nadwaga”).
 - **Konwerter walut** zamienia kwotę w USD na PLN przy stałym kursie 4,2 PLN za 1 USD.
 
 Cała aplikacja opiera się na **nawigacji** pomiędzy różnymi **stronami** (`Page`) wewnątrz głównego okna **MainWindow**. Dzięki temu kod jest **modularny**, a widoki są **łatwe w utrzymaniu** i **dalszej rozbudowie**.
+
+**Ocena**
+
+**Funkcjonalność** Programy spełniają wymagania i prawidłowo realizują swoje zadania.
+
+**Interfejs** Prostota i intuicyjność interfejsu sprawiają, że aplikacja jest łatwa w obsłudze.
+
+**Obsługa błędów** Miękkie błędy wejścia są prawidłowo obsługiwane.
+
+**Możliwości rozwoju** Dalsza rozbudowa aplikacji mogłaby uwzględniać dynamiczne pobieranie kursów walut z internetu czy dodatkowe opcje wizualizacji wyników BMI.
 
 ---
 
